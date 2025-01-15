@@ -1,25 +1,20 @@
-==================
-Core Dashboard App
-==================
+This repository is a modified fork of the NIST CDCS `core_dashboard_app <https://github.com/usnistgov/core_dashboard_app>`_
+(resource management via a dashboard for the curator core project), used by the AsphaltMine (AM) web application.
 
-Resource management via a dashboard for the curator core project.
+Modifications
+=============
 
-Quickstart
-==========
+This fork includes modifications for AsphaltMine, in place since 2025-01-15. For the detailed
+nature and dates of changes, see this repository's commit history.
 
-1. Add "core_dashboard_app" to your INSTALLED_APPS setting
-----------------------------------------------------------
+Original NIST core_dashboard_app
+=================================
 
-.. code:: python
+For the unmodified original, see ``ORIGINAL_README.rst`` and
+`https://github.com/usnistgov/core_dashboard_app <https://github.com/usnistgov/core_dashboard_app>`_.
 
-      INSTALLED_APPS = [
-          ...
-          'core_dashboard_app',
-      ]
+Licensing
+=========
 
-2. Include the core_dashboard_app URLconf in your project urls.py
------------------------------------------------------------------
-
-.. code:: python
-
-      url(r'^dashboard/', include('core_dashboard_app.urls')),
+- NIST License: ``LICENSE.md``
+- Third Party License: ``THIRD_PARTY_LICENSES.md``

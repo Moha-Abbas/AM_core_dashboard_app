@@ -159,6 +159,7 @@ class DashboardWorkspaceTabs(CommonView):
         modals = [
             dashboard_constants.MODALS_COMMON_CHANGE_OWNER,
             dashboard_constants.MODALS_COMMON_DELETE,
+            dashboard_constants.MODALS_COMMON_DOWNLOAD_EXCEL_CONFIRM,
             "core_main_app/user/workspaces/list/modals/assign_workspace.html",
         ]
 
@@ -200,7 +201,7 @@ class DashboardWorkspaceTabs(CommonView):
             ]
 
         # Set page title
-        context.update({"page_title": "Dashboard"})
+        context.update({"page_title": "Shared Workspaces"})
         return self.common_render(
             request,
             self.template,
@@ -332,12 +333,21 @@ class DashboardWorkspaceTabs(CommonView):
                     "path": "core_dashboard_common_app/common/js/list/delete_data_draft.js",
                     "is_raw": False,
                 },
+                {
+                    "path": "core_dashboard_app/common/js/download_workspace.js",
+                    "is_raw": False,
+                },
+                {
+                    "path": "core_main_app/common/js/wait/waiting.js",
+                    "is_raw": False,
+                },
             ],
         }
 
-        assets["css"].append(
-            "core_dashboard_app/common/css/my_dashboard_tabs.css"
-        )
+        assets["css"] += [
+            "core_dashboard_app/common/css/my_dashboard_tabs.css",
+            "core_main_app/common/css/wait/waiting.css"
+        ]
 
         if self.administration:
             assets["js"].append(
